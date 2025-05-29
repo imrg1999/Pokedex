@@ -9,5 +9,21 @@
     height: 500px;
     border: 10px solid gray;
     border-radius: 10px;
+
     background-color: blueviolet;
+
+    margin: 0 auto;   /*centre position of the container div*/
+    margin-top: 60px;
+}
+
+#pokemon-info {
+    width: 250px;   /*50% of main container*/
+    height: 500px;
+    background-color: blue;
+}
+
+#pokemon-list {
+    width: 250px;   /*50% of main container*/
+    height: 500px;
+    background-color: greenyellow;
 }
