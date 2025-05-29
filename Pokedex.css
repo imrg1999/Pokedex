@@ -6,12 +6,13 @@
 
 #container {
     width: 500px;
-    height: 500px;
+    height: 520px;
     border: 10px solid gray;
     border-radius: 10px;
 
     background-color: blueviolet;
 
+    display: flex;
     margin: 0 auto;   /*centre position of the container div*/
     margin-top: 60px;
 }
