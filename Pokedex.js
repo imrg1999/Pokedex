@@ -1,8 +1,14 @@
-const pokemonCount = 1025;
+const pokemonCount = 649;
 var pokedex = {};   // Pokedex Map {1: {"name" : "bulbasaur", "img" : url, "type" : ["grass", "poison"], "desc" : "......."}}//
 
 window.onload = async()  => {
-    await getPokemon(1);
+    //await getPokemon(1);
+
+    for(let i=1; i<= pokemonCount; i++) {
+        await getPokemon(i);
+    }
+
+    console.log(pokedex);
 }
 
 const getPokemon = async(num)  =>{
@@ -12,5 +18,17 @@ const getPokemon = async(num)  =>{
 
     let res = await fetch(url);
     let pokemon = await res.json();
-    console.log(pokemon);
+    //console.log(pokemon);
+
+    let pokemonName = pokemon["name"];
+    let pokemonType = pokemon["types"];
+    let pokemonImage = pokemon["sprites"]["front-default"];
+
+    res = await fetch(pokemon["species"]["url"]);
+    let pokemonDescription = await res.json();
+    //console.log(pokemonDescription);
+
+    pokemonDescription = pokemonDescription["flavor_text_entries"][4]["flavor_text"];
+
+    pokedex[num] = {"name" : pokemonName, "image" : pokemonImage, "types" : pokemonType, "description" : pokemonDescription}
 }
